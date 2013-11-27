@@ -88,7 +88,7 @@ module.exports = (grunt) ->
           expand: true,
           cwd: 'src/css/',
           dest: '.tmp/css/',
-          src: ['**/*.scss', '!_*.scss', '!modules/**/*.scss']
+          src: ['**/*.scss', '!_*.scss', '!modules/**/*.scss', '!blocks/**/*.scss', '!pages/**/*.scss']
           ext: '.css',
         }]
 
@@ -110,7 +110,7 @@ module.exports = (grunt) ->
 
     uncss:
       build:
-        files: 'dist/responsiveMenu.css': 'dist/index.html'
+        files: 'dist/githubModuleRepo.css': 'dist/index.html'
 
     cssmin:
       build:
