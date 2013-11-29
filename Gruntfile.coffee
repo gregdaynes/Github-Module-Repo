@@ -36,6 +36,12 @@ module.exports = (grunt) ->
         src: ['**/*.css', '**/*.map']
         dest: 'dev/css/'
 
+      css_dist:
+        expand: true
+        cwd: '.tmp/css'
+        src: '**/*.css'
+        dest: 'dist/css/'
+
       # copy js to dev folder
       js:
         expand: true
@@ -74,6 +80,11 @@ module.exports = (grunt) ->
         cwd: '.tmp/css'
         src: '**/*.css'
 
+    uncss:
+      dist:
+        files:
+          'dist/css/githubModuleRepo.css': 'dist/index.html'
+
     cssmin:
       build:
         options:
@@ -81,7 +92,7 @@ module.exports = (grunt) ->
           keepSpecialComments: 1
         files: [{
           expand: true
-          cwd: '.tmp/css/'
+          cwd: 'dist/css/'
           src: '**/*.css'
           dest: 'dist/css/'
           ext: '.css'
@@ -206,6 +217,8 @@ module.exports = (grunt) ->
     'autoprefixer'
 #     'csslint'
     'copy:css'
+    'copy:css_dist'
+    'uncss'
     'cssmin'
     'usebanner:css'
   ]
